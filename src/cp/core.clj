@@ -7,4 +7,8 @@
     (copy src dst)))
 
 (defn -main [& args]
-  (copy-file (first args) (second args)))
+  (let [src (first args)
+        dst (second args)]
+    (if (.isFile (as-file src))
+      (copy-file src dst)
+      (println (str src " is directory")))))
