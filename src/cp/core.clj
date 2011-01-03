@@ -1,6 +1,6 @@
 (ns cp.core
   (:gen-class))
-(use '[clojure.contrib.duck-streams :only (reader writer copy)])
+(use '[clojure.java.io :only (reader writer copy as-file)])
 
 (defn copy-file [src-file dst-file]
   (with-open [src (reader src-file) dst (writer dst-file)]
